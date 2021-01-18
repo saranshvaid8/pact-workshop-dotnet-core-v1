@@ -52,6 +52,7 @@ namespace tests
                 {
                     // This teardown the Mock server and generate the pact file.
                     PactBuilder.Build();
+                    
                 }
 
                 disposedValue = true;

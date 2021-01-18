@@ -23,6 +23,7 @@ namespace tests
         }
         #endregion
 
+        #region Tests
        [Fact]
         public void ItCanHandleValidDate()
         {
@@ -36,14 +37,15 @@ namespace tests
                Path = "/api/provider",
                Query="validDateTime=01-01-2012"
            })
-           .WillRespondWith(new ProviderServiceResponse{
+           .WillRespondWith(new ProviderServiceResponse
+           {
                Status = 200,
                Headers = new Dictionary<string, object>{
                    {"Content-Type", "application/json; charset=utf-8"}
                },
                Body= new{
                    message= expectedValidMessage
-               }
+               } 
            });
 
            //Act 
@@ -54,7 +56,7 @@ namespace tests
            Assert.Contains(expectedValidMessage,resultBodyText);
         }
           
-        #region Tests
+        
         [Fact]
         public void ItCanHandleInvalidDate()
         {
