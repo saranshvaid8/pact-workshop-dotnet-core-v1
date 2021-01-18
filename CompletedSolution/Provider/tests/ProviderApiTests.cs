@@ -52,14 +52,16 @@ namespace tests
 
             //Act / Assert
             IPactVerifier pactVerifier = new PactVerifier(config);
-            pactVerifier.ProviderState($"{_pactServiceUri}/provider-states")
+            pactVerifier.ProviderState($"{_pactServiceUri}/")
                 .ServiceProvider("Provider", _providerUri)
                 .HonoursPactWith("Consumer")
                 .PactUri(@"..\..\..\..\..\pacts\consumer-provider.json")
-                .Verify();
+                .Verify(description: "A invalid GET request for Date Validation with empty string date parameter"
+                ,providerState:String.Empty);
         }
 
-        #region IDisposable Support
+         
+         #region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls
 
         protected virtual void Dispose(bool disposing)
