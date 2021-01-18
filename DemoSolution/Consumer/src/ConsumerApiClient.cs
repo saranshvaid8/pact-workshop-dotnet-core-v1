@@ -17,7 +17,7 @@ namespace Consumer
                 }
                 catch (System.Exception ex)
                 {
-                    throw new Exception("There was a problem connecting to Provider API.", ex);
+                    throw new Exception("There was a problem connecting to Provider API.", ex); 
                 }
             }
         }
